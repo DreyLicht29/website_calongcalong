@@ -1,0 +1,257 @@
+/* CSS Variables for Colors */
+:root {
+    --primary-blue: #1e3a8a;
+    --secondary-purple: #7c3aed;
+    --accent-orange: #f97316;
+    --text-black: #000000;
+    --bg-dark: #0f0f23;
+    --bg-gradient-start: #0f0f23;
+    --bg-gradient-end: #1e1b4b;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-black);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+.star:nth-child(odd) {
+    animation-delay: -1s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    animation: fadeInUp 1s ease-out;
+}
+
+.profile-pic {
+    margin-bottom: 2rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.profile-pic img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-orange);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent-orange);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-purple);
+}
+
+/* About Section */
+.about {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+/* Social Links */
+.socials {
+    margin: 4rem 0;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.socials h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+}
+
+.facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+}
+
+.linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+}
+
+.instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    border-color: #e6683c;
+}
+
+.github:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.email:hover, .email-school:hover {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .name {
+        font-size: 2rem;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .profile-pic img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-btn {
+        width: 200px;
+        justify-content: center;
+    }
+}
